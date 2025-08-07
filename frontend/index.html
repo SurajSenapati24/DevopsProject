@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Form</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { margin:0; background: linear-gradient(135deg, #00c3ff 0%, #000000 100%); font-family: Arial,sans-serif; }
+    .container { max-width: 400px; margin: 5% auto; background: #fff; border-radius: 10px; box-shadow:0 2px 6px #888; padding: 2em;}
+    h2 { color: #07689f; }
+    label { font-weight:bold; }
+    input, select { width: 100%; padding: 10px; margin:8px 0 18px 0; border:1px solid #aaa; border-radius:4px;}
+    button { padding:12px; width:100%; border:none; background:#07689f; color:white; font-size:1.1em; border-radius:3px;}
+    button:hover { background:#40a8c4;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Profile Entry Form</h2>
+    <form method="POST" action="/submit">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required>
+      <label for="age">Age</label>
+      <input type="number" min="1" max="120" name="age" id="age" required>
+      <label for="profession">Profession</label>
+      <select name="profession" id="profession" required>
+        <option value="">Select</option>
+        <option>Software Engineer</option>
+        <option>Doctor</option>
+        <option>Teacher</option>
+        <option>Lawyer</option>
+        <option>Artist</option>
+        <option>Student</option>
+        <option>Other</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
