@@ -1,3 +1,9 @@
+CREATE DATABASE IF NOT EXISTS profile_db;
+
+CREATE USER IF NOT EXISTS 'appuser'@'%' IDENTIFIED BY 'apppassword';
+GRANT ALL PRIVILEGES ON profile_db.* TO 'appuser'@'%';
+FLUSH PRIVILEGES;
+
 USE profile_db;
 
 CREATE TABLE IF NOT EXISTS profiles (

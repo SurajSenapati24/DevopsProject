@@ -16,8 +16,8 @@ echo "Starting frontend..."
 sudo docker run -d --name profile-frontend \
   -p 80:3000 -p 3000:3000 \
   -e DB_HOST=$BACKEND_IP \
-  -e DB_USER=user \
-  -e DB_PASS=password \
+  -e DB_USER=appuser \
+  -e DB_PASS=apppassword \
   -e DB_NAME=profile_db \
   ${DOCKER_USERNAME}/profile-app-frontend:latest
 

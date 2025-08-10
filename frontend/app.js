@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // MySQL Connection
 const DB_HOST = process.env.DB_HOST || 'localhost';
-const DB_USER = process.env.DB_USER || 'root';
-const DB_PASS = process.env.DB_PASS || 'root';
+const DB_USER = process.env.DB_USER || 'appuser';
+const DB_PASS = process.env.DB_PASS || 'apppassword';
 const DB_NAME = process.env.DB_NAME || 'profile_db';
 
 const db = mysql.createConnection({
