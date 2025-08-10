@@ -10,12 +10,16 @@ const PORT = 3000;
 app.use(express.static(__dirname));
 
 // Parsing form data
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // MySQL Connection
 const DB_HOST = process.env.DB_HOST || 'localhost';
-const DB_USER = process.env.DB_USER || 'user';
-const DB_PASS = process.env.DB_PASS || 'password';
+const DB_USER = process.env.DB_USER || 'root';
+const DB_PASS = process.env.DB_PASS || 'root';
 const DB_NAME = process.env.DB_NAME || 'profile_db';
 
 const db = mysql.createConnection({

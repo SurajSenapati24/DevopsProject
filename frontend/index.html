@@ -4,6 +4,7 @@
   <title>Profile Form</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    /* Your existing styles */
     body { margin:0; background: linear-gradient(135deg, #00c3ff 0%, #000000 100%); font-family: Arial,sans-serif; }
     .container { max-width: 400px; margin: 5% auto; background: #fff; border-radius: 10px; box-shadow:0 2px 6px #888; padding: 2em;}
     h2 { color: #07689f; }
@@ -16,7 +17,7 @@
 <body>
   <div class="container">
     <h2>Profile Entry Form</h2>
-    <form method="POST" action="/submit">
+    <form id="profileForm">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" required>
       <label for="age">Age</label>
@@ -34,6 +35,30 @@
       </select>
       <button type="submit">Submit</button>
     </form>
+    <div id="result"></div>
   </div>
+
+  <script>
+    document.getElementById('profileForm').addEventListener('submit', async function(e) {
+      e.preventDefault();  // Prevent the default form submission
+
+      const data = {
+        name: document.getElementById('name').value,
+        age: document.getElementById('age').value,
+        profession: document.getElementById('profession').value
+      };
+
+      const response = await fetch('/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const text = await response.text();
+      document.getElementById('result').innerHTML = text; // Show server response
+    });
+  </script>
 </body>
 </html>
